@@ -22,6 +22,7 @@
 
 
     <EditText
+        android:id="@+id/et_register_name"
         android:layout_marginTop="40dp"
         android:textSize="20sp"
         android:layout_gravity="center"
@@ -29,28 +30,34 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"/>
     <EditText
+        android:id="@+id/et_register_id"
         android:layout_marginTop="10dp"
         android:textSize="20sp"
         android:layout_gravity="center"
-        android:hint="请输入手机号"
+        android:hint="请输入学号"
         android:layout_width="300dp"
         android:layout_height="wrap_content"/>
     <EditText
+        android:id="@+id/et_register_password"
         android:layout_marginTop="10dp"
         android:textSize="20sp"
         android:layout_gravity="center"
         android:hint="请输入密码"
+        android:inputType="textPassword"
         android:layout_width="300dp"
         android:layout_height="wrap_content"/>
     <EditText
+        android:id="@+id/et_register_password1"
         android:layout_marginTop="10dp"
         android:textSize="20sp"
         android:layout_gravity="center"
         android:hint="请再次输入密码"
+        android:inputType="textPassword"
         android:layout_width="300dp"
         android:layout_height="wrap_content"/>
 
     <Button
+        android:id="@+id/btn_register_confirm"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"
         android:background="@drawable/login_shape"
@@ -61,6 +68,7 @@
         android:layout_height="wrap_content"/>
 
     <Button
+        android:id="@+id/btn_register_back"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:background="@drawable/register"
