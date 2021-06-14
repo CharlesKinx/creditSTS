@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.example.creditsts.R;
+import com.example.creditsts.activity.HomePageActivity;
 import com.example.creditsts.activity.LoginActivity;
 import com.example.creditsts.adapter.ActivitiesListAdapter;
 import com.example.creditsts.model.ScoreItemInfo;
@@ -46,6 +47,15 @@ public class ActivitiesListFragment extends Fragment implements ActivitiesListAd
 
     }
 
+    private void removeItem(int id){
+
+        for(int i=0;i<LoginActivity.studentInfo.getArrayList().size();i++){
+            if(id==LoginActivity.studentInfo.getArrayList().get(i).getId()){
+                LoginActivity.studentInfo.getArrayList().remove(i);
+            }
+        }
+
+    }
     @Override
     public void itemClick(View v) {
         int position;
@@ -55,7 +65,12 @@ public class ActivitiesListFragment extends Fragment implements ActivitiesListAd
                 Button button = v.findViewById(R.id.join);
                 if(button.getText().equals("参加")){
                     button.setText("已参加");
+                    LoginActivity.studentInfo.setTotalScore(LoginActivity.studentInfo.getTotalScore()+LoginActivity.scoreItemInfoArrayList.get(position).getScore());
+                    LoginActivity.studentInfo.getArrayList().add(LoginActivity.scoreItemInfoArrayList.get(position));
+
                 }else{
+                    removeItem(LoginActivity.scoreItemInfoArrayList.get(position).getId());
+                    LoginActivity.studentInfo.setTotalScore(LoginActivity.studentInfo.getTotalScore()-LoginActivity.scoreItemInfoArrayList.get(position).getScore());
                     button.setText("参加");
                 }
                 break;

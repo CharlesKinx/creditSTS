@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import com.example.creditsts.R;
 import com.example.creditsts.activity.ChangePersonInfoActivity;
 import com.example.creditsts.activity.LoginActivity;
+import com.example.creditsts.activity.MyActivitiesListActivity;
 
 public class PersonalCenterFragment extends Fragment {
 
@@ -26,7 +27,6 @@ public class PersonalCenterFragment extends Fragment {
     private void initView(View view){
         userID = view.findViewById(R.id.tx_userID);
         userName = view.findViewById(R.id.tx_userName);
-        userScore = view.findViewById(R.id.tx_score_total);
         changeInfo = view.findViewById(R.id.user_change);
         scoreList = view.findViewById(R.id.user_list);
     }
@@ -38,12 +38,12 @@ public class PersonalCenterFragment extends Fragment {
 
         userName.setText(LoginActivity.studentInfo.getName());
         userID.setText(LoginActivity.studentInfo.getStudentID());
-        userScore.setText(String.valueOf(LoginActivity.studentInfo.getTotalScore()));
 
         scoreList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),"点击了列表活动",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), MyActivitiesListActivity.class);
+                startActivity(intent);
             }
         });
 

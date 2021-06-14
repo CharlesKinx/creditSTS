@@ -64,6 +64,8 @@ public class LoginActivity extends AppCompatActivity {
         register = findViewById(R.id.btn_register);
         scoreItemInfoArrayList = getDate();
 
+
+
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +88,8 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this,"没有该用户信息",Toast.LENGTH_SHORT).show();
 
                 }else if(name.equals(studentInfo.getName())&&password.equals(studentInfo.getPassword())){
+                    ArrayList<ScoreItemInfo> arrayList = new ArrayList<>();
+                    studentInfo.setArrayList(arrayList);
                     Intent intent = new Intent(LoginActivity.this,HomePageActivity.class);
                     startActivity(intent);
                 }else{
