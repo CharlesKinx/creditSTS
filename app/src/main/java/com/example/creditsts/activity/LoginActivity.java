@@ -14,6 +14,7 @@ import com.example.creditsts.R;
 import com.example.creditsts.model.ScoreItemInfo;
 import com.example.creditsts.model.StudentInfo;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
@@ -32,6 +33,21 @@ public class LoginActivity extends AppCompatActivity {
     private static final int REGISTER_RESULT = 2;
 
 
+    private ArrayList<ScoreItemInfo> getDate(){
+        ArrayList<ScoreItemInfo> arrayList = new ArrayList<>();
+        ScoreItemInfo scoreItemInfo = new ScoreItemInfo();
+
+        SimpleDateFormat tempDate = new SimpleDateFormat("yyyy-MM-dd HH");
+        String datetime = tempDate.format(new java.util.Date())+":00";
+        scoreItemInfo.setId(4);
+        scoreItemInfo.setName("演讲比赛");
+        scoreItemInfo.setTime(datetime);
+        scoreItemInfo.setScore(1.5);
+        arrayList.add(scoreItemInfo);
+
+        return arrayList;
+    }
+
     /**
      * 初始化组件
      */
@@ -40,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         userPassword = findViewById(R.id.et_login_userPs);
         login = findViewById(R.id.btn_login);
         register = findViewById(R.id.btn_register);
+        scoreItemInfoArrayList = getDate();
 
     }
     @Override

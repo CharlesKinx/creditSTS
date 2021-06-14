@@ -69,7 +69,7 @@ public class ActivitiesListAdapter extends BaseAdapter implements View.OnClickLi
         activityScore.setText(String.valueOf(scoreItemInfos.get(position).getScore()));
         activityTime.setText(scoreItemInfos.get(position).getTime());
 
-        return null;
+        return view;
     }
 
     public interface InnerItemOnclickListener {
