@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.creditsts.R;
 import com.example.creditsts.model.StudentInfo;
 
-public class RegisterActivity extends AppCompatActivity {
+public class   RegisterActivity extends AppCompatActivity {
 
     private EditText etUserName;
     private EditText etUserID;

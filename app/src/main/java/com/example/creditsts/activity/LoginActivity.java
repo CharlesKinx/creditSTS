@@ -11,7 +11,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.creditsts.R;
+import com.example.creditsts.model.ScoreItemInfo;
 import com.example.creditsts.model.StudentInfo;
+
+import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -22,6 +25,9 @@ public class LoginActivity extends AppCompatActivity {
     private Button register;
 
     public static StudentInfo studentInfo;
+    public static ArrayList<ScoreItemInfo> scoreItemInfoArrayList;
+
+
     private static final int REGISTER_REQUEST = 1;
     private static final int REGISTER_RESULT = 2;
 
