@@ -57,6 +57,7 @@
             android:id="@+id/et_score"
             android:hint="请输入活动学分"
             android:textSize="25sp"
+            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -80,11 +81,18 @@
             android:id="@+id/et_time"
             android:hint="请输入参加活动时间"
             android:textSize="25sp"
+            android:inputType="datetime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+
     </LinearLayout>
 
+    <TextView
+        android:gravity="center"
+        android:text="时间格式参考：2021-06-14 17:00"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/upload"

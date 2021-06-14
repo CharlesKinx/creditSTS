@@ -64,7 +64,6 @@ public class ActivitiesListAdapter extends BaseAdapter implements View.OnClickLi
 
         button.setOnClickListener(this);
         button.setTag(position);
-
         activityTitle.setText(scoreItemInfos.get(position).getName());
         activityScore.setText(String.valueOf(scoreItemInfos.get(position).getScore()));
         activityTime.setText(scoreItemInfos.get(position).getTime());

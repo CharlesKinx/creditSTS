@@ -41,8 +41,7 @@ public class ChangePersonInfoActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChangePersonInfoActivity.this,HomePageActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 

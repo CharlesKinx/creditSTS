@@ -1,6 +1,7 @@
 package com.example.creditsts.fragment;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -55,8 +56,16 @@ public class UploadScoreFragment extends Fragment {
                     scoreItemInfo.setName(aTitle);
                     LoginActivity.studentInfo.getArrayList().add(scoreItemInfo);
                     LoginActivity.studentInfo.setTotalScore(LoginActivity.studentInfo.getTotalScore()+scoreItemInfo.getScore());
-                    Intent intent = new Intent(getActivity(), HomePageActivity.class);
-                    startActivity(intent);
+                    //Intent intent = new Intent(getActivity(), HomePageActivity.class);
+                    //startActivity(intent);
+                    title.setText("");
+                    score.setText("");
+                    time.setText("");
+                    Toast.makeText(getActivity(),"上传成功！！",Toast.LENGTH_SHORT).show();
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.show(new UploadScoreFragment());
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
                 }
             }
         });
