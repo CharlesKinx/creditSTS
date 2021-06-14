@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".activity.RegisterActivity"></activity>
         <activity android:name=".activity.HomePageActivity"></activity>
+        <activity android:name=".activity.ChangePersonInfoActivity"></activity>
+        <activity android:name=".activity.MyActivitiesListActivity"></activity>
     </application>
 
 </manifest>

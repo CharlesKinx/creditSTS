@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.LoginActivity">
+
+
+    <TextView
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="@drawable/shape"
+        android:layout_width="350dp"
+        android:layout_marginTop="50dp"
+        android:textSize="50dp"
+        android:text="修改个人信息"
+        android:textColor="@color/black"
+        android:layout_marginBottom="40dp"
+        android:layout_height="wrap_content"/>
+
+
+    <EditText
+        android:id="@+id/et_change_name"
+        android:layout_marginTop="40dp"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:hint="请输入用户名"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/et_change_id"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:hint="请输入学号"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/et_change_password"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:hint="请输入密码"
+        android:inputType="textPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/et_change_password1"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:hint="请再次输入密码"
+        android:inputType="textPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_change_confirm"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:background="@drawable/login_shape"
+        android:layout_width="300dp"
+        android:text="确  定"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_change_back"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/register"
+        android:layout_width="300dp"
+        android:text="返  回"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.creditsts.fragment;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.example.creditsts.R;
+import com.example.creditsts.activity.ChangePersonInfoActivity;
 import com.example.creditsts.activity.LoginActivity;
 
 public class PersonalCenterFragment extends Fragment {
@@ -19,12 +21,13 @@ public class PersonalCenterFragment extends Fragment {
     private TextView userName;
     private TextView userScore;
     private TextView scoreList;
+    private TextView changeInfo;
 
     private void initView(View view){
         userID = view.findViewById(R.id.tx_userID);
         userName = view.findViewById(R.id.tx_userName);
         userScore = view.findViewById(R.id.tx_score_total);
-
+        changeInfo = view.findViewById(R.id.user_change);
         scoreList = view.findViewById(R.id.user_list);
     }
     @Nullable
@@ -41,6 +44,14 @@ public class PersonalCenterFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(),"点击了列表活动",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        changeInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ChangePersonInfoActivity.class);
+                startActivity(intent);
             }
         });
         return view;

@@ -1,4 +1,16 @@
 package com.example.creditsts.activity;
 
-public class MyActivitiesListActivity {
+import android.os.Bundle;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.creditsts.R;
+
+public class MyActivitiesListActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_myactivities);
+    }
 }
