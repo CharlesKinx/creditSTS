@@ -1,12 +1,15 @@
 package com.example.creditsts.fragment;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -45,6 +48,17 @@ public class ActivitiesListFragment extends Fragment implements ActivitiesListAd
 
     @Override
     public void itemClick(View v) {
+        int position;
+        position = (Integer) v.getTag();
+        switch (v.getId()){
+            case R.id.join:
+                Button button = v.findViewById(R.id.join);
+                button.setText("以参加");
+                Toast.makeText(getActivity(),"点击",Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
 
     }
 }

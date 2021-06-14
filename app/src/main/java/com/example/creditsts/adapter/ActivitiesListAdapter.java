@@ -83,6 +83,6 @@ public class ActivitiesListAdapter extends BaseAdapter implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-
+        mListener.itemClick(v);
     }
 }
