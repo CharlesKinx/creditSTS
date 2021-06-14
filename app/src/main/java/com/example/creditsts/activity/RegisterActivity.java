@@ -10,7 +10,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.creditsts.R;
+import com.example.creditsts.model.ScoreItemInfo;
 import com.example.creditsts.model.StudentInfo;
+
+import java.util.ArrayList;
 
 public class   RegisterActivity extends AppCompatActivity {
 
@@ -72,6 +75,8 @@ public class   RegisterActivity extends AppCompatActivity {
                     studentInfo.setName(name);
                     studentInfo.setPassword(password);
                     studentInfo.setStudentID(ID);
+                    ArrayList<ScoreItemInfo> arrayList = new ArrayList<>();
+                    studentInfo.setArrayList(arrayList);
                     Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
                     intent.putExtra("studentInfo",studentInfo);
                     setResult(REGISTER_RESULT,intent);

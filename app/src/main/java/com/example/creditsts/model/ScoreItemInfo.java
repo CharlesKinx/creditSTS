@@ -1,6 +1,8 @@
 package com.example.creditsts.model;
 
-public class ScoreItemInfo {
+import java.io.Serializable;
+
+public class ScoreItemInfo implements Serializable {
     private String time;
     private String name;
     private int id;

@@ -53,8 +53,11 @@ public class ActivitiesListFragment extends Fragment implements ActivitiesListAd
         switch (v.getId()){
             case R.id.join:
                 Button button = v.findViewById(R.id.join);
-                button.setText("以参加");
-                Toast.makeText(getActivity(),"点击",Toast.LENGTH_SHORT).show();
+                if(button.getText().equals("参加")){
+                    button.setText("已参加");
+                }else{
+                    button.setText("参加");
+                }
                 break;
             default:
                 break;

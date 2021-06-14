@@ -14,7 +14,7 @@
 
         />
     <LinearLayout
-        android:layout_width="300dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
@@ -83,6 +83,6 @@
         android:gravity="center"
         android:text="参加"
         android:background="#CDCBCB"
-        android:layout_width="60dp"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"/>
 </LinearLayout>

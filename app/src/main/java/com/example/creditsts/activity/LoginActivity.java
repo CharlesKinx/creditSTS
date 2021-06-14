@@ -45,6 +45,12 @@ public class LoginActivity extends AppCompatActivity {
         scoreItemInfo.setScore(1.5);
         arrayList.add(scoreItemInfo);
 
+        scoreItemInfo = new ScoreItemInfo();
+        scoreItemInfo.setId(5);
+        scoreItemInfo.setName("歌唱比赛");
+        scoreItemInfo.setTime(datetime);
+        scoreItemInfo.setScore(2.0);
+        arrayList.add(scoreItemInfo);
         return arrayList;
     }
 
