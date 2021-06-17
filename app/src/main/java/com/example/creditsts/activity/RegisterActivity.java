@@ -13,7 +13,18 @@ import com.example.creditsts.R;
 import com.example.creditsts.model.ScoreItemInfo;
 import com.example.creditsts.model.StudentInfo;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
 import java.util.ArrayList;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class   RegisterActivity extends AppCompatActivity {
 
@@ -76,10 +87,37 @@ public class   RegisterActivity extends AppCompatActivity {
                     studentInfo.setPassword(password);
                     studentInfo.setStudentID(ID);
 
-                    Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
-                    intent.putExtra("studentInfo",studentInfo);
-                    setResult(REGISTER_RESULT,intent);
-                    finish();
+                    OkHttpClient okHttpClient = new OkHttpClient();
+                    RequestBody requestBody = new FormBody.Builder()
+                            .add("account",name)
+                            .add("password",password)
+                            .add("telephone",ID)
+                            .build();
+
+
+                    Request request = new Request.Builder()
+                            .url("http://localhost:8619/user/register")
+                            .post(requestBody)
+                            .build();
+
+
+                    Call call = okHttpClient.newCall(request);
+                    call.enqueue(new Callback() {
+                        @Override
+                        public void onFailure(@NotNull Call call, @NotNull IOException e) {
+
+                        }
+
+                        @Override
+                        public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+
+                            Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+                            intent.putExtra("studentInfo",studentInfo);
+                            setResult(REGISTER_RESULT,intent);
+                            finish();
+                        }
+                    });
+
                 }
             }
         });
