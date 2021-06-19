@@ -9,11 +9,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.example.creditsts.R;
+import com.example.creditsts.model.ResultInfo;
 import com.example.creditsts.model.StudentInfo;
 import com.google.gson.Gson;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONStringer;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -111,8 +115,16 @@ public class   RegisterActivity extends AppCompatActivity {
 
                         @Override
                         public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                            String res = response.body().toString();
-                            System.out.println(res);
+
+                            String res = response.body().string();
+                            ResultInfo resultInfo = JSONObject.parseObject(res,ResultInfo.class);
+                            if(resultInfo.getMsg().equals("注册成功！")){
+                                finish();
+                            }else{
+                                runOnUiThread(()->{
+                                    Toast.makeText(RegisterActivity.this,resultInfo.getMsg(),Toast.LENGTH_SHORT).show();
+                                });
+                            }
                         }
                     });
 
