@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class StudentInfo implements Serializable {
-    private String name;
-    private String studentID;
+    private String account;
+    private String telephone;
     private String password;
     private ArrayList<ScoreItemInfo> arrayList;
     private double totalScore = 0.0;
@@ -26,20 +26,20 @@ public class StudentInfo implements Serializable {
         this.arrayList = arrayList;
     }
 
-    public String getName() {
-        return name;
+    public String getAccount() {
+        return account;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAccount(String account) {
+        this.account = account;
     }
 
-    public String getStudentID() {
-        return studentID;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setStudentID(String studentID) {
-        this.studentID = studentID;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public String getPassword() {

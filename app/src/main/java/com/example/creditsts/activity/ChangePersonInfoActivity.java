@@ -67,8 +67,8 @@ public class ChangePersonInfoActivity extends AppCompatActivity {
                     Toast.makeText(ChangePersonInfoActivity.this,"两次密码不一致！",Toast.LENGTH_SHORT).show();
                 }else {
                     LoginActivity.studentInfo.setPassword(password);
-                    LoginActivity.studentInfo.setStudentID(ID);
-                    LoginActivity.studentInfo.setName(name);
+                    LoginActivity.studentInfo.setTelephone(ID);
+                    LoginActivity.studentInfo.setAccount(name);
                     Intent intent = new Intent(ChangePersonInfoActivity.this,HomePageActivity.class);
                     startActivity(intent);
                 }

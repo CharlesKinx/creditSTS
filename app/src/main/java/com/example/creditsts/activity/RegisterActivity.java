@@ -10,17 +10,18 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.creditsts.R;
-import com.example.creditsts.model.ScoreItemInfo;
 import com.example.creditsts.model.StudentInfo;
+import com.google.gson.Gson;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -82,39 +83,36 @@ public class   RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this,"密码不能为空！",Toast.LENGTH_SHORT).show();
                 }else if(!password.equals(password1)){
                     Toast.makeText(RegisterActivity.this,"两次密码不一致！",Toast.LENGTH_SHORT).show();
-                }else{
-                    studentInfo.setName(name);
+                }else {
+                    studentInfo.setAccount(name);
                     studentInfo.setPassword(password);
-                    studentInfo.setStudentID(ID);
+                    studentInfo.setTelephone(ID);
 
-                    OkHttpClient okHttpClient = new OkHttpClient();
-                    RequestBody requestBody = new FormBody.Builder()
-                            .add("account",name)
-                            .add("password",password)
-                            .add("telephone",ID)
+                    OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                            .readTimeout(120, TimeUnit.SECONDS)
+                            .connectTimeout(120, TimeUnit.SECONDS)
+                            .writeTimeout(120, TimeUnit.SECONDS)
                             .build();
 
+                    Gson gson = new Gson();
+                    String json = gson.toJson(studentInfo);
 
                     Request request = new Request.Builder()
-                            .url("http://localhost:8619/user/register")
-                            .post(requestBody)
+                            .url("http://10.0.116.5:8081/user/register")
+                            .post(RequestBody.create(MediaType.parse("application/json"),json))
                             .build();
-
 
                     Call call = okHttpClient.newCall(request);
                     call.enqueue(new Callback() {
                         @Override
                         public void onFailure(@NotNull Call call, @NotNull IOException e) {
-
+                            System.out.println("请求失败！");
                         }
 
                         @Override
                         public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-
-                            Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
-                            intent.putExtra("studentInfo",studentInfo);
-                            setResult(REGISTER_RESULT,intent);
-                            finish();
+                            String res = response.body().toString();
+                            System.out.println(res);
                         }
                     });
 
