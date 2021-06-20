@@ -102,7 +102,7 @@ public class   RegisterActivity extends AppCompatActivity {
                     String json = gson.toJson(studentInfo);
 
                     Request request = new Request.Builder()
-                            .url("http://10.0.116.5:8081/user/register")
+                            .url("http://10.0.116.6:8081/user/register")
                             .post(RequestBody.create(MediaType.parse("application/json"),json))
                             .build();
 
@@ -111,6 +111,7 @@ public class   RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onFailure(@NotNull Call call, @NotNull IOException e) {
                             System.out.println("请求失败！");
+                            System.out.println(e);
                         }
 
                         @Override
