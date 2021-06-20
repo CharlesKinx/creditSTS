@@ -4,11 +4,20 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class StudentInfo implements Serializable {
+    private Integer id;
     private String account;
     private String telephone;
     private String password;
     private ArrayList<ScoreItemInfo> arrayList;
     private double totalScore = 0.0;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public double getTotalScore() {
         return totalScore;
@@ -49,4 +58,6 @@ public class StudentInfo implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 }
