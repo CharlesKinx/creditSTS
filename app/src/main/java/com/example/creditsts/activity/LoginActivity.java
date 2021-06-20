@@ -131,12 +131,12 @@ public class LoginActivity extends AppCompatActivity {
                             String res = response.body().string();
                             ResultInfo resultInfo = JSONObject.parseObject(res,ResultInfo.class);
                             if(resultInfo.getMsg().equals("登录成功")){
-                                studentInfo  =student;
+                                studentInfo  =resultInfo.getUser();
                                 ArrayList<ScoreItemInfo> arrayList = new ArrayList<>();
                                 studentInfo.setArrayList(arrayList);
                                 System.out.println(resultInfo.getMsg());
-                                //Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
-                                //startActivity(intent);
+                                Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
+                                startActivity(intent);
                             }else{
                                 runOnUiThread(()->{
                                     Toast.makeText(LoginActivity.this,resultInfo.getMsg(),Toast.LENGTH_SHORT).show();
